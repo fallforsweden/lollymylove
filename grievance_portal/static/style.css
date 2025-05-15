@@ -1,0 +1,141 @@
+/* Mobile-first base styles */
+body {
+  background: linear-gradient(to right, #ffd1dc, #ffe6eb);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4b1c2e;
+  padding: 1em;
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Responsive container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #b30059;
+  font-size: clamp(1.5em, 5vw, 2em);
+  margin-bottom: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0.8em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  background-color: #fff0f5;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+button {
+  padding: 0.8em;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #e75480;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.25em;
+  display: block;
+}
+
+select {
+  background-color: #fffafc;
+}
+
+::placeholder {
+  color: #a7587a;
+  opacity: 0.7;
+}
+
+/* Floating Hearts Container */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Each heart */
+.heart {
+  position: absolute;
+  font-size: clamp(16px, 4vw, 24px);
+  animation: floatUp 8s linear infinite;
+  color: #ff4f81;
+  opacity: 0.8;
+}
+
+/* Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5em;
+  }
+  
+  .container {
+    padding: 1em;
+    border-radius: 10px;
+  }
+  
+  input, textarea, select, button {
+    padding: 0.7em;
+    font-size: 0.95em;
+  }
+  
+  textarea {
+    min-height: 120px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2em;
+  }
+}
