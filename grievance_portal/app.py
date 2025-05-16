@@ -22,7 +22,6 @@ def handle_grievance():
     conn.commit()
     conn.close()
 
-    # Return a redirect with a success parameter
     return redirect(url_for('serve_form', success='true'))
 
 if __name__ == '__main__':
