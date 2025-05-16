@@ -256,3 +256,40 @@ th {
     font-size: 1em;
   }
 }
+
+.grievance-cards {
+  display: none; /* Hidden by default */
+}
+
+.grievance-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.card-label {
+  font-weight: bold;
+  min-width: 80px;
+  color: #b30059;
+}
+
+.card-message {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .table-wrapper {
+    display: none;
+  }
+  
+  .grievance-cards {
+    display: block;
+  }
+}
