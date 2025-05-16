@@ -11,28 +11,30 @@
     <h1>All Grievances 🌹</h1>
     
     {% if grievances %}
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Message</th>
-            <th>Mood</th>
-            <th>Severity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for grievance in grievances %}
+      <div class="table-wrapper">
+        <table>
+          <thead>
             <tr>
-              <td>{{ grievance[0] }}</td>
-              <td>{{ grievance[1] }}</td>
-              <td>{{ grievance[2] }}</td>
-              <td>{{ grievance[3] }}</td>
-              <td>{{ grievance[4] }}</td>
+              <th>Name</th>
+              <th>Title</th>
+              <th class="hide-on-mobile">Message</th>
+              <th>Mood</th>
+              <th class="hide-on-mobile">Severity</th>
             </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {% for grievance in grievances %}
+              <tr>
+                <td>{{ grievance[0] }}</td>
+                <td>{{ grievance[1] }}</td>
+                <td class="hide-on-mobile">{{ grievance[2] }}</td>
+                <td>{{ grievance[3] }}</td>
+                <td class="hide-on-mobile">{{ grievance[4] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     {% else %}
       <p>No grievances submitted yet.</p>
     {% endif %}
