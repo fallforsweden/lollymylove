@@ -18,6 +18,9 @@
   <div class="container">
     <h1>Submit a Grievance 🌹</h1>
     <form action="/grievance" method="POST">
+
+       <input name="name" placeholder="Your name">  <!-- Add this line -->
+  <input name="title" placeholder="Title">
       <input name="title" placeholder="Title">
       <textarea name="message" placeholder="What's bothering you?"></textarea>
       <label>Mood:</label>
@@ -26,12 +29,14 @@
         <option value="🙂">🙂</option>
         <option value="😡">😡</option>
         <option value="😢">😢</option>
-         
       </select>
       <label>Severity:</label>
       <input type="text" id="severity" name="severity">
       <button type="submit">Submit 💌</button>
     </form>
+
+        <a href="/list" class="view-button">View All Grievances</a>
+  </div>
   </div>
 
   <div class="hearts" id="hearts-container"></div>
