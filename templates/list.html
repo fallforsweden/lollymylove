@@ -17,21 +17,37 @@
             <tr>
               <th>Name</th>
               <th>Title</th>
-              <th class="hide-on-mobile">Message</th>
+              <th>Message</th>
               <th>Mood</th>
-              <th class="hide-on-mobile">Severity</th>
+              <th>Severity</th>
             </tr>
           </thead>
           <tbody>
-            {% for grievance in grievances %}
-              <tr>
-                <td>{{ grievance[0] }}</td>
-                <td>{{ grievance[1] }}</td>
-                <td class="hide-on-mobile">{{ grievance[2] }}</td>
-                <td>{{ grievance[3] }}</td>
-                <td class="hide-on-mobile">{{ grievance[4] }}</td>
-              </tr>
-            {% endfor %}
+           <div class="grievance-cards">
+  {% for grievance in grievances %}
+    <div class="grievance-card">
+      <div class="card-row">
+        <span class="card-label">Name:</span>
+        <span>{{ grievance[0] }}</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Title:</span>
+        <span>{{ grievance[1] }}</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Mood:</span>
+        <span>{{ grievance[2] }}</span>
+      </div>
+      <div class="card-message">
+        <span class="card-label">Message:</span>
+        <p>{{ grievance[3] }}</p>
+        <div class="card-message">
+        <span class="card-label">Severity:</span>
+        <p>{{ grievance[4] }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
           </tbody>
         </table>
       </div>
