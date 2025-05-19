@@ -293,3 +293,56 @@ th {
     display: block;
   }
 }
+
+/* Add this if .form-container doesn't exist yet */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+/* Mobile responsiveness tweaks */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1em;
+    border-radius: 10px;
+  }
+
+  input, textarea, select {
+    font-size: 1em;
+    padding: 0.7em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 0.75em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+/* Improve Grievance Feed scroll on mobile */
+@media (max-width: 480px) {
+  .form-container + div {
+    padding: 0.5em;
+  }
+
+  .form-container + div h3 {
+    font-size: 1.3em;
+  }
+
+  .form-container + div > div {
+    max-height: 250px;
+  }
+
+  .form-container + div > div > div {
+    font-size: 0.95em;
+  }
+}
