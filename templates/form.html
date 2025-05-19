@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit a Grievance 🌹</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Submit a Grievance 🥀</h2>
+    <form action="/submit" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="text" name="title" placeholder="Title" required />
+      <textarea name="grievance" placeholder="What's bothering you?" required></textarea>
+
+      <label for="mood">Mood:</label>
+      <select name="mood" id="mood">
+        <option value="😘">😘</option>
+        <option value="🙂">🙂</option>
+        <option value="😡">😡</option>
+        <option value="😢">😢</option>
+      </select>
+
+      <label for="severity">Severity:</label>
+      <input type="text" id="severity" name="severity">
+
+      <button type="submit">Submit 💌</button>
+    </form>
+
+    
+  </div>
+
+  <div style="text-align:left;">
+    <h3>📜 Grievance Feed</h3>
+    <div style="max-height: 300px; overflow-y: auto;">
+      {% for name, title, grievance, mood, severity, submitted_at in grievances %}
+        <div style="background: #f9f9f9; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+          <p style="margin: 0; font-weight: bold;">{{ name }} <span style="font-weight: normal; color: #888;">– {{ submitted_at }}</span></p>
+          <p style="margin: 5px 0;"><strong>{{ title }}</strong> {{ mood }}<br>{{ grievance }}</p>
+          <p style="font-size: 0.9em; color: #c00;"><em>Severity: {{ severity }}</em></p>
+        </div>
+      {% else %}
+        <p>No grievances yet. Everyone’s being suspiciously chill 😏</p>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="hearts" id="hearts-container"></div>
+
+  <script>
+    const heartsContainer = document.getElementById("hearts-container");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💗";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 24) + "px";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+   <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        alert('Okay! Grievance accepted');
+      }
+    };
+  </script>
+
+  {% if submitted %}
+    <script>
+      alert("Grievance accepted 👌");
+    </script>
+  {% endif %}
+
+  
+</body>
+</html>
