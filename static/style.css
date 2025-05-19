@@ -1,22 +1,14 @@
 /* Mobile-first base styles */
 body {
   background: linear-gradient(to right, #ffd1dc, #ffe6eb);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Delius", cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   color: #4b1c2e;
   padding: 1em;
   margin: 0;
   min-height: 100vh;
   box-sizing: border-box;
-}
-
-/* Responsive container */
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1.5em;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 h1 {
